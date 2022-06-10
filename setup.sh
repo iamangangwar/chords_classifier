@@ -1,3 +1,4 @@
+sudo apt-get install libsndfile1-dev
 mkdir -p ~/.streamlit/
 echo "\
 [server]\n\
