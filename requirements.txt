@@ -1,7 +1,6 @@
 librosa
 tensorflow-cpu
 streamlit
-sndfile
 pathlib
 numpy
 sounddevice
