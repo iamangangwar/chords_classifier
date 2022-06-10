@@ -1,7 +1,6 @@
 librosa
 tensorflow==2.6.0
-# streamlit
-os
+streamlit
 pathlib
 numpy
 sounddevice
