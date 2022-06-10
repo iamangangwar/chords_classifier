@@ -1,4 +1,3 @@
-matplotlib
 librosa
 tensorflow
 streamlit
@@ -7,3 +6,4 @@ pathlib
 numpy
 sounddevice
 wavio
+matplotlib
