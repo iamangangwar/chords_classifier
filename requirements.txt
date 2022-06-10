@@ -1,5 +1,5 @@
 librosa
-tensorflow
+tensorflow-cpu
 streamlit
 pathlib
 numpy
