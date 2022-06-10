@@ -23,7 +23,7 @@ if st.button("Click to Record"):
     fig = create_spectrogram(rec_path)
     st.pyplot(fig)
 
-    signal, sr = librosa.load("application/samples/audio.wav", sr=44100)
+    signal, sr = librosa.load(os.path.join(FILE_PATH, "samples/audio.wav"), sr=44100)
     mfcc = librosa.feature.mfcc(y=signal, sr=sr, n_fft=2048, hop_length=512, n_mfcc=40)
     fig, ax = plt.subplots()
     display.specshow(data=mfcc, sr=44100, hop_length=512)

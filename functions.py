@@ -6,11 +6,11 @@ from pathlib import Path
 import numpy as np
 import sounddevice as sd
 import streamlit
-import wavio
-import tensorflow as tf
-import os
+from wavio import write
+from tensorflow.keras.models import load_model
+from os.path import dirname, abspath, join
 
-FILE_PATH = os.path.dirname(os.path.abspath(__file__))
+FILE_PATH = dirname(abspath(__file__))
 
 def create_spectrogram(voice_sample):
     """
@@ -53,13 +53,13 @@ def record(duration=5, fs=48000):
     return myrecording
 
 def save_record(path_myrecording, myrecording, fs):
-    wavio.write(path_myrecording, myrecording, fs, sampwidth=2)
+    write(path_myrecording, myrecording, fs, sampwidth=2)
     return None
 
 
 def save_mfcc(recording_path, n_mfcc=13, n_fft=2048, hop_length=512, n_segments=5):
 
-    JSON_PATH = os.path.join(FILE_PATH, "samples/data.json")
+    JSON_PATH = join(FILE_PATH, "samples/data.json")
     SAMPLE_RATE = 44100
     DURATION = 2  # measured in seconds
     SAMPLES_PER_TRACK = SAMPLE_RATE * DURATION
@@ -101,12 +101,12 @@ def save_mfcc(recording_path, n_mfcc=13, n_fft=2048, hop_length=512, n_segments=
         json.dump(data, fp, indent=4)
 
 def predict():
-    model = tf.keras.models.load_model(os.path.join(FILE_PATH, "saved_model/dcnn_model"))
+    model = load_model(join(FILE_PATH, "saved_model/dcnn_model"))
 
     inputs = np.zeros(10)
     error = False
     try:
-        with open(os.path.join(FILE_PATH, "samples/data.json"), "r") as fp:
+        with open(join(FILE_PATH, "samples/data.json"), "r") as fp:
             data = json.load(fp)
 
             # convert lists into numpy arrays
