@@ -7,7 +7,7 @@ import numpy as np
 import sounddevice as sd
 import streamlit
 from wavio import write
-from tensorflow-cpu.keras.models import load_model
+from tensorflow.keras.models import load_model
 from os.path import dirname, abspath, join
 
 FILE_PATH = dirname(abspath(__file__))
