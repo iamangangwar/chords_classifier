@@ -1,5 +1,5 @@
 librosa
-tensorflow==2.6.0
+tensorflow
 streamlit
 pathlib
 numpy
