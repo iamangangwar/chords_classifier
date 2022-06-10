@@ -1,5 +1,5 @@
 librosa
-tensorflow
+tensorflow=2.6.0
 streamlit
 os
 pathlib
