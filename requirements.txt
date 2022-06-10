@@ -1,0 +1,9 @@
+matplotlib
+librosa
+tensorflow
+streamlit
+os
+pathlib
+numpy
+sounddevice
+wavio
